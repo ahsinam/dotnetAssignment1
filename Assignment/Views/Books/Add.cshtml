@@ -1,0 +1,63 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{ Layout = "../../Pages/Shared/_Layout.cshtml"; }
+
+
+@model Assignment.Models.AddAuthorViewModel
+
+<h1>Add Book</h1>
+
+<form method="post">
+    <div>
+        <div class="d-flex justify-content-between gap-3">
+            <div class="w-100">
+                <label class="form-label">Title</label>
+                <input class="form-control" type="text" name="Title" id="Title" required />
+            </div>
+
+            <div class="w-100">
+                <label class="form-label">Publisher</label>
+                <input class="form-control" type="text" name="Publisher" id="Publisher" />
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between gap-3">
+            <div class="w-100">
+                <label class="form-label">Published Date</label>
+                <input class="form-control" type="date" name="PublishedDate" id="PublishedDate" />
+            </div>
+
+            <div class="w-100">
+                <label class="form-label">ISBN</label>
+                <input class="form-control" type="text" name="ISBN" id="ISBN" />
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between gap-3">
+            <div class="w-100">
+                <label class="form-label">Price</label>
+                <input class="form-control" type="number" name="Price" id="Price" />
+            </div>
+
+            <div class="w-100">
+                <label class="form-label">Author</label>
+                <select class="form-select" name="AuthorId" id="AuthorId" required>
+                    @foreach (var author in ViewBag.Authors)
+                    {
+                        <option value="@author.Id">@author.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="d-flex">
+            <div class="w-50">
+                <label class="form-label">Genre</label>
+                <input class="form-control" type="text" name="Genre" id="Genre" />
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Save</button>
+</form>
+
